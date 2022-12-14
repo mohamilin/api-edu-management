@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     post_content: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     },
     post_image: {
       type: DataTypes.STRING,
@@ -61,7 +61,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
     },
     is_deleted: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.ENUM('true', 'false')
     },
   };
 

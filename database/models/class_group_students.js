@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER
         },
         is_class_manager: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.ENUM('true', 'false')
         },
         created_by: {
             type: DataTypes.INTEGER
@@ -34,8 +34,8 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE
         },
         is_deleted: {
-            type: DataTypes.BOOLEAN
-        },
+            type: DataTypes.ENUM('true', 'false')
+          },
     };
 
     const ClassGroupStudents = sequelize.define("class_group_students", attributes, {

@@ -8,10 +8,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ENUM("Ganjil", "Genap")
     },
     current_semester: {
-      type: DataTypes.BOOLEAN
+      type: DataTypes.ENUM('true', 'false'),
     },
     admission_semester: {
-      type: DataTypes.BOOLEAN
+      type: DataTypes.ENUM('true', 'false'),
     },
     created_by: {
       type: DataTypes.INTEGER
@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     },
     is_deleted: {
-      type: DataTypes.BOOLEAN
+      type: DataTypes.ENUM('true', 'false')
     },
   }
 

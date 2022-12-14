@@ -43,8 +43,8 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE
         },
         is_deleted: {
-            type: DataTypes.BOOLEAN
-        },
+            type: DataTypes.ENUM('true', 'false')
+          },
     };
 
     const Achievements = sequelize.define("achievements", attributes, {
