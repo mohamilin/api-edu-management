@@ -50,7 +50,7 @@ async function uploadFile(req, res) {
         });  
         // report the response from the request
         console.log(response.data);
-       res.json({message:response.data})
+       res.json({message: 'Anda berhasil uplod file gambar.jpeg', data:response.data})
     }catch (error) {
         //report the error message
         console.log(error.message, 'gagal');
