@@ -272,49 +272,49 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
       },
       father_education_id: {
-        type: DataTypes.xxx,
+        type: DataTypes.INTEGER,
       },
       father_employment_id: {
-        type: DataTypes.xxx,
+        type: DataTypes.INTEGER,
       },
       father_monthly_income_id: {
-        type: DataTypes.xxx,
+        type: DataTypes.INTEGER,
       },
       father_special_need_id: {
-        type: DataTypes.xxx,
+        type: DataTypes.INTEGER,
       },
       mother_name: {
-        type: DataTypes.xxx,
+        type: DataTypes.STRING,
       },
       mother_birth_year: {
-        type: DataTypes.xxx,
+        type: DataTypes.DATE,
       },
       mother_education_id: {
-        type: DataTypes.xxx,
+        type: DataTypes.INTEGER,
       },
       mother_employment_id: {
-        type: DataTypes.xxx,
+        type: DataTypes.INTEGER,
       },
       mother_monthly_income_id: {
-        type: DataTypes.xxx,
+        type: DataTypes.INTEGER,
       },
       mother_special_need_id: {
-        type: DataTypes.xxx,
+        type: DataTypes.INTEGER,
       },
       guardian_name: {
-        type: DataTypes.xxx,
+        type: DataTypes.STRING,
       },
       guardian_birth_year: {
-        type: DataTypes.xxx,
+        type: DataTypes.DATE,
       },
       guardian_education_id: {
-        type: DataTypes.xxx,
+        type: DataTypes.INTEGER,
       },
       guardian_employment_id: {
-        type: DataTypes.xxx,
+        type: DataTypes.INTEGER,
       },
       guardian_monthly_income_id: {
-        type: DataTypes.xxx,
+        type: DataTypes.INTEGER,
       },
       mileage: {
         type: DataTypes.SMALLINT,
@@ -329,7 +329,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.SMALLINT,
       },
       sibling_number: {
-        type: DataTypes.xxx,
+        type: DataTypes.SMALLINT,
       },
       student_status_id: {
         type: DataTypes.INTEGER,
