@@ -9,15 +9,15 @@ const path = require('path');
 const fs = require('fs');
 
 //client id
-const CLIENT_ID ='348804555336-5rgg4eicnqoi9tu10bpi98otoe9910sv.apps.googleusercontent.com'
+const CLIENT_ID =process.env.CLIENT_ID
 
 //client secret
-const CLIENT_SECRET ='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'
+const CLIENT_SECRET =process.env.CLIENT_SECRET
 //redirect URL
 const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
 
 //refresh token
-const REFRESH_TOKEN ='1//046JlOK1kcKvACgYIARAAGAQSNwF-L9IrkdnEZNXcHhj-vtQDhWToHEqIs8cWvqbY5fHQdPhaMmbyMOjGjdH2tFStUi1R4uL25Oc'
+const REFRESH_TOKEN =''
 //intialize auth client
 const oauth2Client = new google.auth.OAuth2(
     CLIENT_ID,
@@ -25,7 +25,7 @@ const oauth2Client = new google.auth.OAuth2(
     REDIRECT_URI
 );
 
-oauth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
+oauth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN_G_DRIVE });
 
 //initialize google drive
 const drive = google.drive({
