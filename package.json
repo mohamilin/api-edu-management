@@ -8,11 +8,13 @@
     "test": "jest --coverage"
   },
   "dependencies": {
+    "@google-cloud/local-auth": "^2.1.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "google-auth-library": "^8.7.0",
     "googleapis": "^109.0.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
