@@ -9,7 +9,7 @@ module.exports = {
     username: process.env.DB_USERNAME_DEV,
     password: process.env.DB_PASSWORD_DEV,
     port: process.env.DB_PORT,
-    logging: false,
+    logging: console.log,
     host: process.env.DB_HOSTNAME_DEV,
     dialect: "mysql",
     dialectOptions: {
@@ -30,12 +30,12 @@ module.exports = {
     dialect: "mysql",
   },
   staging: {
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOSTNAME,
+    database: process.env.DB_NAME_STG,
+    username: process.env.DB_USERNAME_STG,
+    password: process.env.DB_PASSWORD_STG,
+    host: process.env.DB_HOSTNAME_STG,
     port: process.env.DB_PORT,
-    logging: false,
+    logging: console.log,
     dialect: "mysql",
   },
   production: {
@@ -43,9 +43,8 @@ module.exports = {
     username: process.env.DB_USERNAME_PROD,
     password: process.env.DB_PASSWORD_PROD,
     port: process.env.DB_PORT || 3306,
-    logging: false,
-    host:
-      process.env.DB_HOSTNAME_PROD,
+    logging: console.log,
+    host: process.env.DB_HOSTNAME_PROD,
     dialectOptions: {
       ssl: {
         require: true,

@@ -35,7 +35,7 @@ const drive = google.drive({
 
 //file path for out file
 const filePath = path.join(__dirname, 'gambar.jpeg');
-console.log(filePath);
+// console.log(filePath);
 async function uploadFile(req, res) {
     try{
       const response = await drive.files.create({

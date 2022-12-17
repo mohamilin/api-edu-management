@@ -1,13 +1,13 @@
 const database = require('./models')
-
+const logger = require('../config/logger');
 module.exports = class Connection {
-    connect() {
+    async connect() {
         try {
-            database.sequelize.authenticate();
-            console.log({listModels: database.sequelize.models});
-            console.log('Connection has been established successfully.');
+           await database.sequelize.authenticate();
+            // console.log({listModels: database.sequelize.models});
+            logger.info('Connection has been established successfully.');
           } catch (error) {
-            console.error('Unable to connect to the database:', error);
+            logger.error('Unable to connect to the database:', error);
           }
     }
 }
