@@ -34,11 +34,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
     },
     is_deleted: {
-      type: DataTypes.ENUM('true', 'false')
+      type: DataTypes.ENUM('true', 'false'),
     },
   };
 
-  const LoginAttempts = sequelize.define("login_attempts", attributes, {
+  const LoginAttempts = sequelize.define('login_attempts', attributes, {
     freezeTableName: true,
     timestamps: true,
     paranoid: true,

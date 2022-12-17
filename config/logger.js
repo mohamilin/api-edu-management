@@ -1,13 +1,11 @@
 const winston = require('winston');
 
 const enumerateErrorFormat = winston.format((info) => {
-    if (info instanceof Error) {
-      Object.assign(info, { message: info.stack });
-    }
-    return info;
-  });
-
-  
+  if (info instanceof Error) {
+    Object.assign(info, { message: info.stack });
+  }
+  return info;
+});
 
 const logger = winston.createLogger({
   level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',

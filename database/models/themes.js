@@ -31,22 +31,22 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
     },
     is_deleted: {
-      type: DataTypes.ENUM('true', 'false')
+      type: DataTypes.ENUM('true', 'false'),
     },
-  }
+  };
 
-  const Themes = sequelize.define("themes", attributes, {
+  const Themes = sequelize.define('themes', attributes, {
     freezeTableName: true,
     timestamps: true,
     paranoid: true,
     underscored: true,
-  })
+  });
 
   Themes.associate = (models) => {
     /**
      *
      */
-  }
+  };
 
   return Themes;
-}
+};

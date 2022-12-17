@@ -31,22 +31,22 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
     },
     is_deleted: {
-      type: DataTypes.ENUM('true', 'false')
+      type: DataTypes.ENUM('true', 'false'),
     },
-  }
+  };
 
-  const UserPrivileges = sequelize.define("user_privileges", attributes, {
+  const UserPrivileges = sequelize.define('user_privileges', attributes, {
     freezeTableName: true,
     timestamps: true,
     paranoid: true,
     underscored: true,
-  })
+  });
 
   UserPrivileges.associate = (models) => {
     /**
      *
      */
-  }
+  };
 
   return UserPrivileges;
-}
+};

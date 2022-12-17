@@ -13,9 +13,9 @@ const ApiError = require('./utils/api-error');
 
 const app = express();
 
-if(process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV !== 'test') {
   app.use(morgan.successHandler);
-  app.use(morgan.errorHandler)
+  app.use(morgan.errorHandler);
 }
 
 // view engine setup
@@ -32,13 +32,13 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   next(createError(404));
 });
 
 // error handler
 /**
- * 
+ *
  app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
@@ -49,7 +49,6 @@ app.use(function(req, res, next) {
 });
  */
 
-
 app.use((req, res, next) => {
   next(new ApiError(httpStatus.NOT_FOUND, 'Not found'));
 });
@@ -59,6 +58,5 @@ app.use(errorConverter);
 
 // handle error
 app.use(errorHandler);
-
 
 module.exports = app;
