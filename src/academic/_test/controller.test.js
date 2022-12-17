@@ -1,6 +1,6 @@
-const {getAllAcademicYears} = require('./controller');
+const {getAllAcademicYears} = require('../controller');
 
-const ModelDatabase = require('../../database/models');
+const ModelDatabase = require('../../../database/models');
 const Model = ModelDatabase.sequelize.models;
 
 describe('Describe Unit Test - Controller Academic', () => {
