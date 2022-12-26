@@ -1,7 +1,6 @@
-
 /**
- * 
- * 
+ *
+ *
 
 CREATE TABLE `students` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -108,281 +107,279 @@ CREATE TABLE `students` (
  */
 
 module.exports = (sequelize, DataTypes) => {
-    const attributes = {
-      major_id: {
-        type: DataTypes.INTEGER,
-      },
-      first_choice_id: {
-        type: DataTypes.INTEGER,
-      },
-      second_choice_id: {
-        type: DataTypes.INTEGER,
-      },
-      registration_number: {
-        type: DataTypes.STRING,
-      },
-      admission_exam_number: {
-        type: DataTypes.STRING,
-      },
-      selection_result: {
-        type: DataTypes.STRING,
-      },
-      admission_phase_id: {
-        type: DataTypes.INTEGER,
-      },
-      admission_type_id: {
-        type: DataTypes.INTEGER,
-      },
-      photo: {
-        type: DataTypes.STRING,
-      },
-      achievement: {
-        type: DataTypes.TEXT,
-      },
-      is_student: {
-        type: DataTypes.ENUM('true', 'false'),
-      },
-      is_prospective_student: {
-        type: DataTypes.ENUM('true', 'false'),
-      },
-      is_alumni: {
-        type: DataTypes.ENUM('true', 'false'),
-      },
-      is_transfer: {
-        type: DataTypes.ENUM('true', 'false'),
-      },
-      re_registration: {
-        type: DataTypes.ENUM('true', 'false'),
-      },
-      start_date: {
-        type: DataTypes.DATE,
-      },
-      identity_number: {
-        type: DataTypes.STRING,
-      },
-      nisn: {
-        type: DataTypes.STRING,
-      },
-      nik: {
-        type: DataTypes.STRING,
-      },
-      prev_exam_number: {
-        type: DataTypes.STRING,
-      },
-      prev_diploma_number: {
-        type: DataTypes.STRING,
-      },
-      paud: {
-        type: DataTypes.BOOLEAN,
-      },
-      tk: {
-        type: DataTypes.BOOLEAN,
-      },
-      skhun: {
-        type: DataTypes.STRING,
-      },
-      prev_school_name: {
-        type: DataTypes.STRING,
-      },
-      prev_school_address: {
-        type: DataTypes.STRING,
-      },
-      hobby: {
-        type: DataTypes.STRING,
-      },
-      ambition: {
-        type: DataTypes.STRING,
-      },
-      full_name: {
-        type: DataTypes.STRING,
-      },
-      gender: {
-        type: DataTypes.ENUM('M', 'F'),
-      },
-      birth_place:{
-        type: DataTypes.STRING,
-      },
-      birth_date: {
-        type: DataTypes.DATE,
-      },
-      religion_id: {
-        type: DataTypes.INTEGER,
-      },
-      special_need_id: {
-        type: DataTypes.INTEGER,
-      },
-      street_address: {
-        type: DataTypes.STRING,
-      },
-      rt: {
-        type: DataTypes.STRING,
-      },
-      rw: {
-        type: DataTypes.STRING,
-      },
-      sub_village: {
-        type: DataTypes.STRING,
-      },
-      village: {
-        type: DataTypes.STRING,
-      },
-      sub_district: {
-        type: DataTypes.STRING,
-      },
-      district: {
-        type: DataTypes.STRING,
-      },
-      postal_code: {
-        type: DataTypes.STRING,
-      },
-      residence_id: {
-        type: DataTypes.INTEGER,
-      },
-      transportation_id: {
-        type: DataTypes.INTEGER,
-      },
-      mobile_phone: {
-        type: DataTypes.STRING,
-      },
-      email: {
-        type: DataTypes.STRING,
-      },
-      sktm: {
-        type: DataTypes.STRING,
-      },
-      kps: {
-        type: DataTypes.STRING,
-      },
-      kip: {
-        type: DataTypes.STRING,
-      },
-      kis: {
-        type: DataTypes.STRING,
-      },
-      citizenship: {
-        type: DataTypes.ENUM('WNI', 'WNA'),
-      },
-      country: {
-        type: DataTypes.STRING,
-      },
-      father_name: {
-        type: DataTypes.STRING,
-      },
-      father_birth_year: {
-        type: DataTypes.DATE,
-      },
-      father_education_id: {
-        type: DataTypes.INTEGER,
-      },
-      father_employment_id: {
-        type: DataTypes.INTEGER,
-      },
-      father_monthly_income_id: {
-        type: DataTypes.INTEGER,
-      },
-      father_special_need_id: {
-        type: DataTypes.INTEGER,
-      },
-      mother_name: {
-        type: DataTypes.STRING,
-      },
-      mother_birth_year: {
-        type: DataTypes.DATE,
-      },
-      mother_education_id: {
-        type: DataTypes.INTEGER,
-      },
-      mother_employment_id: {
-        type: DataTypes.INTEGER,
-      },
-      mother_monthly_income_id: {
-        type: DataTypes.INTEGER,
-      },
-      mother_special_need_id: {
-        type: DataTypes.INTEGER,
-      },
-      guardian_name: {
-        type: DataTypes.STRING,
-      },
-      guardian_birth_year: {
-        type: DataTypes.DATE,
-      },
-      guardian_education_id: {
-        type: DataTypes.INTEGER,
-      },
-      guardian_employment_id: {
-        type: DataTypes.INTEGER,
-      },
-      guardian_monthly_income_id: {
-        type: DataTypes.INTEGER,
-      },
-      mileage: {
-        type: DataTypes.SMALLINT,
-      },
-      traveling_time: {
-        type: DataTypes.SMALLINT,
-      },
-      height: {
-        type: DataTypes.SMALLINT,
-      },
-      weight: {
-        type: DataTypes.SMALLINT,
-      },
-      sibling_number: {
-        type: DataTypes.SMALLINT,
-      },
-      student_status_id: {
-        type: DataTypes.INTEGER,
-      },
-      end_date: {
-        type: DataTypes.DATE,
-      },
-      reason: {
-        type: DataTypes.STRING,
-      },
-      created_by: {
-        type: DataTypes.INTEGER,
-      },
-      created_at: {
-        type: DataTypes.DATE,
-      },
-      updated_by: {
-        type: DataTypes.INTEGER,
-      },
-      updated_at: {
-        type: DataTypes.DATE,
-      },
-      deleted_by: {
-        type: DataTypes.INTEGER,
-      },
-      deleted_at: {
-        type: DataTypes.DATE,
-      },
-      restored_by: {
-        type: DataTypes.INTEGER,
-      },
-      restored_at: {
-        type: DataTypes.DATE,
-      },
-      is_deleted: {
-        type: DataTypes.ENUM('true', 'false')
-      },
-    };
-  
-    const Students = sequelize.define("students", attributes, {
-      freezeTableName: true,
-      timestamps: true,
-      paranoid: true,
-      underscored: true,
-    });
-  
-    Students.associate = (models) => {
-      /**
-       *
-       */
-    };
-  
-    return Students;
+  const attributes = {
+    major_id: {
+      type: DataTypes.INTEGER,
+    },
+    first_choice_id: {
+      type: DataTypes.INTEGER,
+    },
+    second_choice_id: {
+      type: DataTypes.INTEGER,
+    },
+    registration_number: {
+      type: DataTypes.STRING,
+    },
+    admission_exam_number: {
+      type: DataTypes.STRING,
+    },
+    selection_result: {
+      type: DataTypes.STRING,
+    },
+    admission_phase_id: {
+      type: DataTypes.INTEGER,
+    },
+    admission_type_id: {
+      type: DataTypes.INTEGER,
+    },
+    photo: {
+      type: DataTypes.STRING,
+    },
+    achievement: {
+      type: DataTypes.TEXT,
+    },
+    is_student: {
+      type: DataTypes.ENUM('true', 'false'),
+    },
+    is_prospective_student: {
+      type: DataTypes.ENUM('true', 'false'),
+    },
+    is_alumni: {
+      type: DataTypes.ENUM('true', 'false'),
+    },
+    is_transfer: {
+      type: DataTypes.ENUM('true', 'false'),
+    },
+    re_registration: {
+      type: DataTypes.ENUM('true', 'false'),
+    },
+    start_date: {
+      type: DataTypes.DATE,
+    },
+    identity_number: {
+      type: DataTypes.STRING,
+    },
+    nisn: {
+      type: DataTypes.STRING,
+    },
+    nik: {
+      type: DataTypes.STRING,
+    },
+    prev_exam_number: {
+      type: DataTypes.STRING,
+    },
+    prev_diploma_number: {
+      type: DataTypes.STRING,
+    },
+    paud: {
+      type: DataTypes.BOOLEAN,
+    },
+    tk: {
+      type: DataTypes.BOOLEAN,
+    },
+    skhun: {
+      type: DataTypes.STRING,
+    },
+    prev_school_name: {
+      type: DataTypes.STRING,
+    },
+    prev_school_address: {
+      type: DataTypes.STRING,
+    },
+    hobby: {
+      type: DataTypes.STRING,
+    },
+    ambition: {
+      type: DataTypes.STRING,
+    },
+    full_name: {
+      type: DataTypes.STRING,
+    },
+    gender: {
+      type: DataTypes.ENUM('M', 'F'),
+    },
+    birth_place: {
+      type: DataTypes.STRING,
+    },
+    birth_date: {
+      type: DataTypes.DATE,
+    },
+    religion_id: {
+      type: DataTypes.INTEGER,
+    },
+    special_need_id: {
+      type: DataTypes.INTEGER,
+    },
+    street_address: {
+      type: DataTypes.STRING,
+    },
+    rt: {
+      type: DataTypes.STRING,
+    },
+    rw: {
+      type: DataTypes.STRING,
+    },
+    sub_village: {
+      type: DataTypes.STRING,
+    },
+    village: {
+      type: DataTypes.STRING,
+    },
+    sub_district: {
+      type: DataTypes.STRING,
+    },
+    district: {
+      type: DataTypes.STRING,
+    },
+    postal_code: {
+      type: DataTypes.STRING,
+    },
+    residence_id: {
+      type: DataTypes.INTEGER,
+    },
+    transportation_id: {
+      type: DataTypes.INTEGER,
+    },
+    mobile_phone: {
+      type: DataTypes.STRING,
+    },
+    email: {
+      type: DataTypes.STRING,
+    },
+    sktm: {
+      type: DataTypes.STRING,
+    },
+    kps: {
+      type: DataTypes.STRING,
+    },
+    kip: {
+      type: DataTypes.STRING,
+    },
+    kis: {
+      type: DataTypes.STRING,
+    },
+    citizenship: {
+      type: DataTypes.ENUM('WNI', 'WNA'),
+    },
+    country: {
+      type: DataTypes.STRING,
+    },
+    father_name: {
+      type: DataTypes.STRING,
+    },
+    father_birth_year: {
+      type: DataTypes.DATE,
+    },
+    father_education_id: {
+      type: DataTypes.INTEGER,
+    },
+    father_employment_id: {
+      type: DataTypes.INTEGER,
+    },
+    father_monthly_income_id: {
+      type: DataTypes.INTEGER,
+    },
+    father_special_need_id: {
+      type: DataTypes.INTEGER,
+    },
+    mother_name: {
+      type: DataTypes.STRING,
+    },
+    mother_birth_year: {
+      type: DataTypes.DATE,
+    },
+    mother_education_id: {
+      type: DataTypes.INTEGER,
+    },
+    mother_employment_id: {
+      type: DataTypes.INTEGER,
+    },
+    mother_monthly_income_id: {
+      type: DataTypes.INTEGER,
+    },
+    mother_special_need_id: {
+      type: DataTypes.INTEGER,
+    },
+    guardian_name: {
+      type: DataTypes.STRING,
+    },
+    guardian_birth_year: {
+      type: DataTypes.DATE,
+    },
+    guardian_education_id: {
+      type: DataTypes.INTEGER,
+    },
+    guardian_employment_id: {
+      type: DataTypes.INTEGER,
+    },
+    guardian_monthly_income_id: {
+      type: DataTypes.INTEGER,
+    },
+    mileage: {
+      type: DataTypes.SMALLINT,
+    },
+    traveling_time: {
+      type: DataTypes.SMALLINT,
+    },
+    height: {
+      type: DataTypes.SMALLINT,
+    },
+    weight: {
+      type: DataTypes.SMALLINT,
+    },
+    sibling_number: {
+      type: DataTypes.SMALLINT,
+    },
+    student_status_id: {
+      type: DataTypes.INTEGER,
+    },
+    end_date: {
+      type: DataTypes.DATE,
+    },
+    reason: {
+      type: DataTypes.STRING,
+    },
+    created_by: {
+      type: DataTypes.INTEGER,
+    },
+    created_at: {
+      type: DataTypes.DATE,
+    },
+    updated_by: {
+      type: DataTypes.INTEGER,
+    },
+    updated_at: {
+      type: DataTypes.DATE,
+    },
+    deleted_by: {
+      type: DataTypes.INTEGER,
+    },
+    deleted_at: {
+      type: DataTypes.DATE,
+    },
+    restored_by: {
+      type: DataTypes.INTEGER,
+    },
+    restored_at: {
+      type: DataTypes.DATE,
+    },
+    is_deleted: {
+      type: DataTypes.ENUM('true', 'false'),
+    },
   };
-  
-  
+
+  const Students = sequelize.define('students', attributes, {
+    freezeTableName: true,
+    timestamps: true,
+    paranoid: true,
+    underscored: true,
+  });
+
+  Students.associate = (models) => {
+    /**
+     *
+     */
+  };
+
+  return Students;
+};

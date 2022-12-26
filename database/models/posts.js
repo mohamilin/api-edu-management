@@ -22,10 +22,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ENUM('publish', 'draft'),
     },
     post_visibility: {
-      type: DataTypes.ENUM('public','private'),
+      type: DataTypes.ENUM('public', 'private'),
     },
     post_comment_status: {
-      type: DataTypes.ENUM('open','close'),
+      type: DataTypes.ENUM('open', 'close'),
     },
     post_slug: {
       type: DataTypes.STRING,
@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     post_tags: {
       type: DataTypes.STRING,
     },
-    post_counter : {
+    post_counter: {
       type: DataTypes.INTEGER,
     },
     created_by: {
@@ -61,11 +61,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
     },
     is_deleted: {
-      type: DataTypes.ENUM('true', 'false')
+      type: DataTypes.ENUM('true', 'false'),
     },
   };
 
-  const Posts = sequelize.define("posts", attributes, {
+  const Posts = sequelize.define('posts', attributes, {
     freezeTableName: true,
     timestamps: true,
     paranoid: true,

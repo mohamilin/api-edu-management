@@ -1,15 +1,13 @@
-const express = require('express');
+const express = require("express");
+
+const AuthRoutes = require("./auth");
+const AcademicRoutes = require("./academic");
+const UserRoutes = require("./users");
+
 const router = express.Router();
-const AcademicControllers = require('../src/academic/controller');
-const GDriveController = require('../src/gdrive/controller');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-router.get('/academic-years', AcademicControllers.getAllAcademicYears);
-router.get('/gdrive', GDriveController.uploadFile);
-
+router.use("/auth", AuthRoutes);
+router.use("/academic", AcademicRoutes);
+router.use("/users", UserRoutes);
 
 module.exports = router;

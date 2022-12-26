@@ -1,11 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
-
   const attributes = {
     academic_year: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     semester: {
-      type: DataTypes.ENUM("Ganjil", "Genap")
+      type: DataTypes.ENUM('Ganjil', 'Genap'),
     },
     current_semester: {
       type: DataTypes.ENUM('true', 'false'),
@@ -14,34 +13,33 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ENUM('true', 'false'),
     },
     created_by: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
     },
     created_at: {
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
     },
     updated_by: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
     },
     updated_at: {
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
     },
     deleted_by: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
     },
     deleted_at: {
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
     },
     restored_by: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
     },
     restored_at: {
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
     },
     is_deleted: {
-      type: DataTypes.ENUM('true', 'false')
+      type: DataTypes.ENUM('true', 'false'),
     },
-  }
-
+  };
 
   const AcademicYears = sequelize.define('academic_years', attributes, {
     freezeTableName: true,
@@ -50,12 +48,11 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true,
   });
 
-
   AcademicYears.associate = (models) => {
     /**
-     * 
+     *
      */
-  }
+  };
 
   return AcademicYears;
 };

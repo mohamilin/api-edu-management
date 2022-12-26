@@ -19,13 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
     },
     user_type: {
-      type: DataTypes.ENUM(
-        "super_user",
-        "administrator",
-        "employee",
-        "student",
-        "parent"
-      ),
+      type: DataTypes.ENUM('super_user', 'administrator', 'employee', 'student', 'parent'),
     },
     user_profile_id: {
       type: DataTypes.INTEGER,
@@ -40,10 +34,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
     },
     has_login: {
-      type: DataTypes.ENUM("true", "false"),
+      type: DataTypes.ENUM('true', 'false'),
     },
     last_logged_in: {
-      type: DataTypes.ENUM("true", "false"),
+      type: DataTypes.ENUM('true', 'false'),
     },
     ip_address: {
       type: DataTypes.STRING,
@@ -73,11 +67,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
     },
     is_deleted: {
-      type: DataTypes.ENUM("true", "false"),
+      type: DataTypes.ENUM('true', 'false'),
     },
   };
 
-  const Users = sequelize.define("users", attributes, {
+  const Users = sequelize.define('users', attributes, {
     freezeTableName: true,
     timestamps: true,
     paranoid: true,

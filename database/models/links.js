@@ -7,13 +7,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     link_target: {
-      type: DataTypes.ENUM("_blank", "_self", "_parent", "_top"),
+      type: DataTypes.ENUM('_blank', '_self', '_parent', '_top'),
     },
     link_image: {
       type: DataTypes.STRING,
     },
     link_type: {
-      type: DataTypes.ENUM("link", "banner"),
+      type: DataTypes.ENUM('link', 'banner'),
     },
     created_by: {
       type: DataTypes.INTEGER,
@@ -40,11 +40,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
     },
     is_deleted: {
-      type: DataTypes.ENUM('true', 'false')
+      type: DataTypes.ENUM('true', 'false'),
     },
   };
 
-  const Links = sequelize.define("links", attributes, {
+  const Links = sequelize.define('links', attributes, {
     freezeTableName: true,
     timestamps: true,
     paranoid: true,

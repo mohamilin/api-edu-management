@@ -31,11 +31,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
     },
     is_deleted: {
-      type: DataTypes.ENUM('true', 'false')
+      type: DataTypes.ENUM('true', 'false'),
     },
   };
 
-  const Pollings = sequelize.define("pollings", attributes, {
+  const Pollings = sequelize.define('pollings', attributes, {
     freezeTableName: true,
     timestamps: true,
     paranoid: true,

@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const attributes = {
-    user_gropu: {
+    user_group: {
       type: DataTypes.STRING,
     },
     created_by: {
@@ -28,11 +28,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
     },
     is_deleted: {
-      type: DataTypes.ENUM("true", "false"),
+      type: DataTypes.ENUM('true', 'false'),
     },
   };
 
-  const UserGroups = sequelize.define("user_groups", attributes, {
+  const UserGroups = sequelize.define('user_groups', attributes, {
     freezeTableName: true,
     timestamps: true,
     paranoid: true,
