@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const attributes = {
-    user_gropu: {
+    user_group: {
       type: DataTypes.STRING,
     },
     created_by: {

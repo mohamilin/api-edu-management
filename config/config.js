@@ -1,7 +1,7 @@
 /* eslint-disable const/no-anonymous-default-export */
 // const mysql2 = require( 'mysql2'
-const mysql2 = require('mysql2');
-require('dotenv').config();
+const mysql2 = require("mysql2");
+require("dotenv").config();
 
 module.exports = {
   development: {
@@ -11,7 +11,7 @@ module.exports = {
     port: process.env.DB_PORT,
     logging: console.log,
     host: process.env.DB_HOSTNAME_DEV,
-    dialect: 'mysql',
+    dialect: "mysql",
     dialectOptions: {
       ssl: {
         require: true,
@@ -26,8 +26,8 @@ module.exports = {
     },
   },
   test: {
-    storage: ':memory',
-    dialect: 'mysql',
+    storage: ":memory",
+    dialect: "mysql",
   },
   staging: {
     database: process.env.DB_NAME_STG,
@@ -36,7 +36,7 @@ module.exports = {
     host: process.env.DB_HOSTNAME_STG,
     port: process.env.DB_PORT,
     logging: console.log,
-    dialect: 'mysql',
+    dialect: "mysql",
   },
   production: {
     database: process.env.DB_NAME_PROD,
@@ -51,7 +51,7 @@ module.exports = {
         rejectUnauthorized: false,
       },
     },
-    dialect: 'mysql',
+    dialect: "mysql",
     dialectModule: mysql2,
     pool: {
       max: 50,
