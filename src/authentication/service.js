@@ -9,9 +9,10 @@ const ApiError = require("../../utils/api-error");
 const UserService = require("../user/service");
 
 const createUser = async (payload) => {
+  const { user_email, user_name, user_password } = payload;
   const userByEmail = await Model.users.findOne({
     where: {
-      user_email: payload.user_email,
+      user_email: user_email,
     },
     attributes: ["id", "user_name", "user_email"],
   });
@@ -21,7 +22,7 @@ const createUser = async (payload) => {
   if (payload?.user_name) {
     const userByUsername = await Model.users.findOne({
       where: {
-        user_name: payload.user_name,
+        user_name: user_name,
       },
       attributes: ["id", "user_name", "user_email"],
     });
@@ -31,12 +32,17 @@ const createUser = async (payload) => {
   }
 
   const saltRounds = 10;
-  payload.user_password = await bcrypt.hash(payload.user_password, saltRounds);
+  const newUser_password = await bcrypt.hash(user_password, saltRounds);
 
-  return Model.users.create(payload);
+  return Model.users.create({
+    user_email,
+    user_name,
+    user_password: newUser_password,
+  });
 };
 
 const loginByEmail = async (payload) => {
+  const { user_password } = payload;
   const user = await UserService.getUserByEmail(payload);
   if (!user)
     throw new ApiError(
@@ -44,10 +50,7 @@ const loginByEmail = async (payload) => {
       "Periksa kembali email atau password anda !"
     );
 
-  const matchPassword = await bcrypt.compare(
-    payload.user_password,
-    user.user_password
-  );
+  const matchPassword = await bcrypt.compare(user_password, user.user_password);
 
   if (!matchPassword)
     throw new ApiError(
@@ -59,12 +62,13 @@ const loginByEmail = async (payload) => {
 };
 
 const logout = async (payload) => {
-    const refreshTokenDoc = await Model.tokens.findOne({
-        where: { token: payload.refresh_token }
-    });
+  const { refresh_token } = payload;
+  const refreshTokenDoc = await Model.tokens.findOne({
+    where: { token: refresh_token },
+  });
 
   if (!refreshTokenDoc) {
-    throw new ApiError(httpStatus.NOT_FOUND, 'Not found');
+    throw new ApiError(httpStatus.NOT_FOUND, "Not found");
   }
   await refreshTokenDoc.destroy();
 };

@@ -31,7 +31,7 @@ const loginByEmail = CatchAsync(async (req, res) => {
 
 const logout = CatchAsync(async (req, res) => {
   await AuthenticationService.logout(req.body);
-  res.status(httpStatus.NO_CONTENT).send();
+  res.status(httpStatus.OK).send({message: 'Logout Success'});
 });
 
 module.exports = {
