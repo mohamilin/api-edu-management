@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 
 
 
-const allowlist = ['http://localhost:3000', 'http://localhost:3001']
+const allowlist = ['http://localhost:3000', 'http://localhost:3001', 'https://dashboard-material-ui.vercel.app']
 const corsOptionsDelegate = function (req, callback) {
   let corsOptions;
   if (allowlist.indexOf(req.header('Origin')) !== -1) {
