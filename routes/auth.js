@@ -12,6 +12,8 @@ router.post(
   AuthenticationControllers.register
 );
 router.post("/login-email", AuthenticationControllers.loginByEmail);
+router.get("/refresh-token", AuthenticationControllers.refreshToken);
+
 router.post("/logout", AuthenticationControllers.logout);
 
 module.exports = router;
