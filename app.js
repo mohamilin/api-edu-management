@@ -4,7 +4,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const passport = require("passport");
-
+const cors = require('cors')
 const indexRouter = require("./routes/index");
 
 const morgan = require("./config/morgan");
@@ -12,6 +12,25 @@ const { errorConverter, errorHandler } = require("./middlewares/errors");
 const ApiError = require("./utils/api-error");
 const { jwtStrategy } = require("./config/passport");
 const app = express();
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
+
+
+const allowlist = ['http://localhost:3000', 'http://localhost:3001']
+const corsOptionsDelegate = function (req, callback) {
+  let corsOptions;
+  if (allowlist.indexOf(req.header('Origin')) !== -1) {
+    corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
+  } else {
+    corsOptions = { origin: false } // disable CORS for this request
+  }
+  callback(null, corsOptions) // callback expects two parameters: error and options
+}
+
 
 if (process.env.NODE_ENV !== "test") {
   app.use(morgan.successHandler);
@@ -32,7 +51,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(passport.initialize());
 passport.use("jwt", jwtStrategy);
 
-app.use("/", indexRouter);
+app.use("/", cors(corsOptionsDelegate), indexRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

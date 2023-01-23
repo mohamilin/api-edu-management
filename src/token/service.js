@@ -67,10 +67,10 @@ const saveToken = async (
 const verifyToken = async (token, type) => {
   const payload = jwt.verify(token, process.env.JWT_SECRET);
   const tokenDoc = await Model.tokens.findOne({
-    token,
-    type,
-    user: payload.sub,
-    blacklisted: false,
+    where: {
+      token,
+      type
+    }
   });
   if (!tokenDoc) {
     throw new Error("Token not found");
@@ -78,6 +78,14 @@ const verifyToken = async (token, type) => {
   return tokenDoc;
 };
 
+const deleteToken = async(token, type) => {
+  return Model.tokens.destroy({
+    where: {
+      token,
+      type
+    }
+  })
+}
 /**
  * Generate auth tokens
  * @param {User} user
@@ -181,4 +189,6 @@ module.exports = {
   generateAuthTokens,
   generateResetPasswordToken,
   generateVerifyEmailToken,
+  verifyToken,
+  deleteToken
 };

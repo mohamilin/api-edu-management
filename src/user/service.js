@@ -11,6 +11,19 @@ const getUserByEmail = async (payload) => {
   });
 };
 
+const getUserById = async (user) => {
+  return Model.users.findOne({
+    where: {
+      id: user.user_id
+    },
+  });
+}
+
+const getAll = async () => {
+  return Model.users.findAll()
+}
 module.exports = {
   getUserByEmail,
+  getUserById,
+  getAll
 };

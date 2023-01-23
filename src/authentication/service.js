@@ -7,11 +7,13 @@ const httpStatus = require("http-status");
 const ApiError = require("../../utils/api-error");
 
 const UserService = require("../user/service");
+const TokenService = require("../token/service");
 
 const createUser = async (payload) => {
+  const { user_email, user_name, user_password } = payload;
   const userByEmail = await Model.users.findOne({
     where: {
-      user_email: payload.user_email,
+      user_email: user_email,
     },
     attributes: ["id", "user_name", "user_email"],
   });
@@ -21,7 +23,7 @@ const createUser = async (payload) => {
   if (payload?.user_name) {
     const userByUsername = await Model.users.findOne({
       where: {
-        user_name: payload.user_name,
+        user_name: user_name,
       },
       attributes: ["id", "user_name", "user_email"],
     });
@@ -31,40 +33,61 @@ const createUser = async (payload) => {
   }
 
   const saltRounds = 10;
-  payload.user_password = await bcrypt.hash(payload.user_password, saltRounds);
+  const newUser_password = await bcrypt.hash(user_password, saltRounds);
 
-  return Model.users.create(payload);
+  return Model.users.create({
+    user_email,
+    user_name,
+    user_password: newUser_password,
+  });
 };
 
 const loginByEmail = async (payload) => {
+  const { user_password } = payload;
   const user = await UserService.getUserByEmail(payload);
-  if (!user)
+  if (!user) {
+ throw new ApiError(
+  httpStatus.UNAUTHORIZED,
+  "Periksa kembali email atau password anda !"
+);
+
+  }
+ 
+  const matchPassword = await bcrypt.compare(user_password, user.user_password);
+
+  if (!matchPassword) {
     throw new ApiError(
       httpStatus.UNAUTHORIZED,
       "Periksa kembali email atau password anda !"
     );
-
-  const matchPassword = await bcrypt.compare(
-    payload.user_password,
-    user.user_password
-  );
-
-  if (!matchPassword)
-    throw new ApiError(
-      httpStatus.UNAUTHORIZED,
-      "Periksa kembali email atau password anda !"
-    );
-
+    }
   return user;
 };
 
+const refreshToken = async(token) => {
+  try {
+    const tokens = await TokenService.verifyToken(token, process.env.TOKEN_TYPE_REFRESH);
+    const user = await UserService.getUserById(tokens);
+
+    if (!user) {
+      throw new Error();
+    }
+    const data = await  TokenService.deleteToken(token, process.env.TOKEN_TYPE_REFRESH)
+    return TokenService.generateAuthTokens(user);
+  } catch (error) {
+    console.log(error, 'Failed refreshToken');
+    throw new ApiError(httpStatus.UNAUTHORIZED, 'Please authenticate !')
+  }
+}
+
 const logout = async (payload) => {
-    const refreshTokenDoc = await Model.tokens.findOne({
-        where: { token: payload.refresh_token }
-    });
+  const refresh_token = payload.refresh_token;
+  const refreshTokenDoc = await Model.tokens.findOne({
+    where: { token:refresh_token },
+  });
 
   if (!refreshTokenDoc) {
-    throw new ApiError(httpStatus.NOT_FOUND, 'Not found');
+    throw new ApiError(httpStatus.NOT_FOUND, "Not found");
   }
   await refreshTokenDoc.destroy();
 };
@@ -72,5 +95,6 @@ const logout = async (payload) => {
 module.exports = {
   createUser,
   loginByEmail,
+  refreshToken,
   logout,
 };

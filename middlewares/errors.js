@@ -8,7 +8,7 @@ const ApiError = require('../utils/api-error');
 
 const errorConverter = (err, req, res, next) => {
   let error = err;
-      // console.log(error, 'error');
+  console.log(err, 'MESSAGE Error');
   if (err instanceof Sequelize.DatabaseError) {
     const success = false;
     const statusCode = 500;
@@ -16,7 +16,7 @@ const errorConverter = (err, req, res, next) => {
     error = new ApiError(statusCode, message, false, err.stack, success);
   }
 
-
+ 
   if (!(error instanceof ApiError)) {
     if (error.message === 'Validation error') {
       const condition = req.body.user_email && req.body.user_name ? `${req.body.user_email} dan ${req.body.user_name}` :
@@ -46,6 +46,7 @@ const errorHandler = (err, req, res, next) => {
     statusCode,
     message
   } = err;
+
   if (process.env.NODE_ENV === 'production' && !err.isOperational) {
     statusCode = httpStatus.INTERNAL_SERVER_ERROR;
     message = httpStatus[httpStatus.INTERNAL_SERVER_ERROR];
