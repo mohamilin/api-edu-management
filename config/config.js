@@ -1,6 +1,4 @@
 /* eslint-disable const/no-anonymous-default-export */
-// const mysql2 = require( 'mysql2'
-const mysql2 = require("mysql2");
 require("dotenv").config();
 
 module.exports = {
@@ -11,13 +9,7 @@ module.exports = {
     port: process.env.DB_PORT,
     logging: console.log,
     host: process.env.DB_HOSTNAME_DEV,
-    dialect: "mysql",
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
-    },
+    dialect: "postgres",
     pool: {
       max: 50,
       min: 10,
@@ -36,7 +28,7 @@ module.exports = {
     host: process.env.DB_HOSTNAME_STG,
     port: process.env.DB_PORT,
     logging: console.log,
-    dialect: "mysql",
+    dialect: "postgres",
   },
   production: {
     database: process.env.DB_NAME_PROD,
@@ -51,8 +43,8 @@ module.exports = {
         rejectUnauthorized: false,
       },
     },
-    dialect: "mysql",
-    dialectModule: mysql2,
+    dialect: "postgres",
+    // dialectModule: "",   
     pool: {
       max: 50,
       min: 10,

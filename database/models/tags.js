@@ -1,52 +1,29 @@
+'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  const attributes = {
-    tag: {
-      type: DataTypes.STRING,
-    },
-    slug: {
-      type: DataTypes.STRING,
-    },
-    created_by: {
-      type: DataTypes.INTEGER,
-    },
-    created_at: {
-      type: DataTypes.DATE,
-    },
-    updated_by: {
-      type: DataTypes.INTEGER,
-    },
-    updated_at: {
-      type: DataTypes.DATE,
-    },
-    deleted_by: {
-      type: DataTypes.INTEGER,
-    },
-    deleted_at: {
-      type: DataTypes.DATE,
-    },
-    restored_by: {
-      type: DataTypes.INTEGER,
-    },
-    restored_at: {
-      type: DataTypes.DATE,
-    },
-    is_deleted: {
-      type: DataTypes.ENUM('true', 'false'),
-    },
-  };
-
-  const Tags = sequelize.define('tags', attributes, {
-    freezeTableName: true,
-    timestamps: true,
-    paranoid: true,
-    underscored: true,
-  });
-
-  Tags.associate = (models) => {
+  class tags extends Model {
     /**
-     *
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
      */
-  };
-
-  return Tags;
+    static associate(models) {
+      
+      // define association here
+    }
+  }
+  tags.init({
+    name: DataTypes.STRING,
+    slug: DataTypes.STRING,
+    createdBy: DataTypes.INTEGER,
+    updatedBy: DataTypes.INTEGER,
+    deletedBy: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'tags',
+    paranoid: true,
+  });
+  return tags;
 };
