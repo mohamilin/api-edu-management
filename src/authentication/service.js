@@ -72,7 +72,8 @@ const refreshToken = async(token) => {
     if (!user) {
       throw new Error();
     }
-    const data = await  TokenService.deleteToken(token, process.env.TOKEN_TYPE_REFRESH)
+    
+    await  TokenService.deleteToken(token, process.env.TOKEN_TYPE_REFRESH)
     return TokenService.generateAuthTokens(user);
   } catch (error) {
     console.log(error, 'Failed refreshToken');

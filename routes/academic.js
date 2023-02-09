@@ -7,10 +7,12 @@ const GDriveController = require("../src/gdrive/controller");
 const Auth = require("../middlewares/authentication");
 
 router.get(
-  "/years",
+  "/",
   Auth("manageUsers"),
-  AcademicControllers.getAllAcademicYears
+  AcademicControllers.getAll
 );
+
+router.post('/', Auth('manageUsers'), AcademicControllers.add)
 
 router.get("/gdrive",  Auth("manageUsers"), GDriveController.uploadFile);
 

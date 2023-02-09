@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     res.status(200).json({title: "Welcome Edu Management", message: "By Amilin"})
 })
 router.use("/auth", AuthRoutes);
-router.use("/academic", AcademicRoutes);
+router.use("/academic-years", AcademicRoutes);
 router.use("/users", UserRoutes);
 
 module.exports = router;
