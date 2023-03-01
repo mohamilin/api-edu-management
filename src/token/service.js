@@ -50,7 +50,7 @@ const saveToken = async (
 ) => {
   const tokenDoc = await Model.tokens.create({
     token,
-    user_id: userId,
+    memberId: userId,
     expires: expires.toDate(),
     type,
     blacklisted,
@@ -75,10 +75,12 @@ const verifyToken = async (token, type) => {
   if (!tokenDoc) {
     throw new Error("Token not found");
   }
+
   return tokenDoc;
 };
 
 const deleteToken = async(token, type) => {
+  console.log('deleteToken', {token, type});
   return Model.tokens.destroy({
     where: {
       token,
@@ -93,6 +95,7 @@ const deleteToken = async(token, type) => {
  */
 
 const generateAuthTokens = async (user) => {
+  console.log(user, 'generate');
   const accessTokenExpires = moment().add(
     process.env.JWT_ACCESS_EXPIRATION_MINUTES,
     "minutes"

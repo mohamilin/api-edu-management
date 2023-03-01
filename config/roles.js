@@ -2,10 +2,6 @@ const allRoles = {
   user: [],
   super_user: ["getUsers", "manageUsers"],
   administrator: ["getUsers", "manageUsers"],
-  teacher: [],
-  employee: [],
-  student: [],
-  parent: [],
 };
 
 const roles = Object.keys(allRoles);
