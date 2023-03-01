@@ -7,8 +7,8 @@ const router = express.Router();
 router.get('/', (req, res) => {
     res.status(200).json({title: "Welcome Gamer Tag", message: "By Amilin"})
 })
-router.use("/auth", AuthRoutes);
-router.use("/academic-years", AcademicRoutes);
+// router.use("/auth", AuthRoutes);
+// router.use("/academic-years", AcademicRoutes);
 
 router.use("/members", MemberRoutes);
 router.use("/users", UserRoutes);
