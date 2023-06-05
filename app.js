@@ -5,11 +5,11 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const passport = require("passport");
 const cors = require('cors')
-const indexRouter = require("./routes/index");
+const indexRouter = require("./src/routes/index");
 
 const morgan = require("./config/morgan");
 const { errorConverter, errorHandler } = require("./middlewares/errors");
-const ApiError = require("./utils/api-error");
+const ApiError = require("./src/utils/api-error");
 const { jwtStrategy } = require("./config/passport");
 const app = express();
 

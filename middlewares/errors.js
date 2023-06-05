@@ -4,7 +4,7 @@ const {
 } = require('sequelize');
 
 const logger = require('../config/logger');
-const ApiError = require('../utils/api-error');
+const ApiError = require('../src/utils/api-error');
 
 const errorConverter = (err, req, res, next) => {
   let error = err;

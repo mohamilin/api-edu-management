@@ -1,4 +1,4 @@
-const ModelDatabase = require("../../database/models");
+const ModelDatabase = require("../../../database/models");
 const Model = ModelDatabase.sequelize.models;
 
 const getUserByUsername = async (payload) => {

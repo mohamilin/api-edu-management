@@ -1,7 +1,7 @@
 const moment = require("moment");
 const jwt = require("jsonwebtoken");
 
-const ModelDatabase = require("../../database/models");
+const ModelDatabase = require("../../../database/models");
 const Model = ModelDatabase.sequelize.models;
 
 const httpStatus = require("http-status");

@@ -12,7 +12,7 @@ module.exports = {
       token: {
         type: Sequelize.STRING
       },
-      memberId: {
+      userId: {
         type: Sequelize.INTEGER
       },
       type: {

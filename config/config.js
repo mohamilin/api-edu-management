@@ -9,7 +9,7 @@ module.exports = {
     port: process.env.DB_PORT,
     logging: console.log,
     host: process.env.DB_HOSTNAME_DEV,
-    dialect: "postgres",
+    dialect: "mysql",
     pool: {
       max: 50,
       min: 10,
