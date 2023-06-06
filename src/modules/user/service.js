@@ -1,8 +1,7 @@
 const ModelDatabase = require("../../../database/models");
 const Model = ModelDatabase.sequelize.models;
-
 const getUserByUsername = async (payload) => {
-  return Model.members.findOne({
+  return Model.users.findOne({
     where: {
       username: payload?.username,
     },
@@ -10,7 +9,7 @@ const getUserByUsername = async (payload) => {
 };
 
 const getUserById = async (user) => {
-  return Model.members.findOne({
+  return Model.users.findOne({
     where: {
       id: user.memberId,
     },
@@ -18,7 +17,7 @@ const getUserById = async (user) => {
 };
 
 const getAll = async () => {
-  return Model.members.findAll();
+  return Model.users.findAll();
 };
 module.exports = {
   getUserById,
