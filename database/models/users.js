@@ -25,6 +25,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ENUM('super_user','administrator','employee','student','parent', 'guest'),
       defaultValue: 'guest'
     },
+    isEmailVerified : {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
     createdBy: {
       type: DataTypes.INTEGER,
       defaultValue: 0
