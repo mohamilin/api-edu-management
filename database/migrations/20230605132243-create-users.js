@@ -22,6 +22,10 @@ module.exports = {
         type: Sequelize.ENUM('super_user','administrator','employee','student','parent', 'guest'),
         defaultValue: 'guest'
       },
+      isEmailVerified : {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
       createdBy: {
         type: Sequelize.INTEGER,
         defaultValue: 0
