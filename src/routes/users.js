@@ -1,6 +1,6 @@
 const express = require("express");
 
-const UserController = require('../modules/user/controller');
+const UserControllers = require('../modules/user/controllers');
 const Auth = require("../../middlewares/authentication");
  
 const router = express.Router();
@@ -10,6 +10,5 @@ router.get("/", (req, res, next) => {
   res.json({message:"respond with a resource"});
 });
 
-
-router.get('/all', Auth('manageUsers'), UserController.getAll )
+router.get('/all', UserControllers.getAll )
 module.exports = router;

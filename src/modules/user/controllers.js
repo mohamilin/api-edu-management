@@ -1,10 +1,10 @@
 const httpStatus = require('http-status');
 const catchAsync = require('../../utils/catch-error');
-const UserService = require('./service');
+const UserServices = require('./services');
 
 
 const getAll = catchAsync(async (req, res) => {
-    const user = await UserService.getAll()
+    const user = await UserServices.getAll()
 
 
     return res.status(200).json({
