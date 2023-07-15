@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   tokens.init({
     token: DataTypes.STRING,
-    memberId: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
     type: DataTypes.ENUM("access", "refresh", "resetPassword", "verifyEmail"),
     expires: DataTypes.DATE,
   }, {
