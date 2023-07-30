@@ -8,8 +8,14 @@ const ApiError = require('../src/utils/api-error');
 
 const errorConverter = (err, req, res, next) => {
   let error = err;
-  console.log(err, 'MESSAGE Error');
+  if(err.name === 'SequelizeUniqueConstraintError') {
+    const success = false;
+    const statusCode = 400;
+    const message = err.errors[0].message;
+    error = new ApiError(statusCode, message, false, err.stack='', success);
+  }
   if (err instanceof Sequelize.DatabaseError) {
+    console.log(err, 'gagal')
     const success = false;
     const statusCode = 500;
     const message = 'Database related error';

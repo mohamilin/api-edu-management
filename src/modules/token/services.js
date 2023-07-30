@@ -50,7 +50,7 @@ const saveToken = async (
 ) => {
   const tokenDoc = await Model.tokens.create({
     token,
-    memberId: userId,
+    userId,
     expires: expires.toDate(),
     type,
     blacklisted,
@@ -95,7 +95,7 @@ const deleteToken = async(token, type) => {
  */
 
 const generateAuthTokens = async (user) => {
-  console.log(user, 'generate');
+  console.log(user.id, 'id');
   const accessTokenExpires = moment().add(
     process.env.JWT_ACCESS_EXPIRATION_MINUTES,
     "minutes"

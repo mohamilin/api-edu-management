@@ -10,5 +10,5 @@ router.get("/", (req, res, next) => {
   res.json({message:"respond with a resource"});
 });
 
-router.get('/all', UserControllers.getAll )
+router.get('/all', Auth(), UserControllers.getAll )
 module.exports = router;

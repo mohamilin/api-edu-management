@@ -157,6 +157,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.ENUM("true", "false"),
         defaultValue: "false",
       },
+      school_level: {
+        type: DataTypes.STRING,
+        defaultValue: null,
+      },
       re_registration: {
         type: DataTypes.ENUM("true", "false"),
         defaultValue: null,
@@ -265,6 +269,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         defaultValue: null,
       },
+      province: {
+        type: DataTypes.STRING,
+        defaultValue: null,
+      },
       postal_code: {
         type: DataTypes.STRING,
         defaultValue: null,
@@ -301,8 +309,12 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         defaultValue: null,
       },
+      father_phone: {
+        type: DataTypes.STRING,
+        defaultValue: null,
+      },
       father_birth_year: {
-        type: DataTypes.DATEONLY,
+        type: DataTypes.STRING,
         defaultValue: null,
       },
       father_education_id: {
@@ -325,8 +337,12 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         defaultValue: null,
       },
+      mother_phone: {
+        type: DataTypes.STRING,
+        defaultValue: null,
+      },
       mother_birth_year: {
-        type: DataTypes.DATEONLY,
+        type: DataTypes.STRING,
         defaultValue: null,
       },
       mother_education_id: {
@@ -335,22 +351,26 @@ module.exports = (sequelize, DataTypes) => {
       },
       mother_employment_id: {
         type: DataTypes.INTEGER,
-        defaultValue: null,
+        defaultValue: 0,
       },
       mother_monthly_income_id: {
         type: DataTypes.INTEGER,
-        defaultValue: null,
+        defaultValue: 0,
       },
       mother_special_need_id: {
         type: DataTypes.INTEGER,
-        defaultValue: null,
+        defaultValue: 0,
       },
       guardian_name: {
         type: DataTypes.STRING,
         defaultValue: null,
       },
+      guardian_phone: {
+        type: DataTypes.STRING,
+        defaultValue: null,
+      },
       guardian_birth_year: {
-        type: DataTypes.DATEONLY,
+        type: DataTypes.STRING,
         defaultValue: null,
       },
       guardian_education_id: {
